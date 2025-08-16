@@ -1,13 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello World</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; padding-top: 50px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ur-girly1's GitHub</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: #c9d1d9;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    top: 10%;
+  }
+
+  .typing {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .links a {
+    display: inline-block;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #58a6ff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .links a:hover {
+    color: #1f6feb;
+  }
+
+  #chatContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(30,30,30,0.9);
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    max-height: 350px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+
+  #chatInput {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.9rem;
+  }
+
+  .chatMessage {
+    margin: 5px 0;
+  }
+
+  .user { color: #58a6ff; }
+  .bot { color: #d1d5da; }
+</style>
 </head>
 <body>
-  <h1>Welcome to My Free Website</h1>
-  <p>Hosted with GitHub Pages / Netlify / Vercel</p>
+<canvas id="stars"></canvas>
+<canvas id="particles"></canvas>
+<canvas id="shootingStars"></canvas>
+
+<div class="content">
+  <div class="typing" id="typingText"></div>
+  <div class="links">
+    <a href="https://github.com/ur-girly1" target="_blank">GitHub</a>
+    <a href="#" target="_blank">Discord</a>
+    <a href="#" target="_blank">YouTube</a>
+  </div>
+</div>
+
+<div id="chatContainer">
+  <div id="chatBox"></div>
+  <input type="text" id="chatInput" placeholder="Ask me something..." />
+</div>
+
+<script>
+  // ===================== Typing Effect =====================
+  const message = "Hello, I'm ur-girly1!";
+  const typingText = document.getElementById("typingText");
+  let index = 0;
+  function type() {
+    if(index < message.length) {
+      typingText.innerHTML += message[index];
+      index++;
+      setTimeout(type, 100);
+    }
+  }
+  type();
+
+  // ===================== Stars Background =====================
+  const starCanvas = document.getElementById('stars');
+  const starCtx = starCanvas.getContext('2d');
+  let sw = starCanvas.width = window.innerWidth;
+  let sh = starCanvas.height = window.innerHeight;
+
+  const stars = [];
+  for(let i=0;i<200;i++){
+    stars.push({
+      x: Math.random()*sw,
+      y: Math.random()*sh,
+      radius: Math.random()*1.5,
+      speed: Math.random()*0.5+0.1
+    });
+  }
+
+  function animateStars(){
+    starCtx.clearRect(0,0,sw,sh);
+    starCtx.fillStyle = "white";
+    stars.forEach(star => {
+      starCtx.beginPath();
+      starCtx.arc(star.x, star.y, star.radius,0,Math.PI*2);
+      starCtx.fill();
+      star.y -= star.speed;
+      if(star.y<0){ star.y=sh; star.x=Math.random()*sw; }
+    });
+    requestAnimationFrame(animateStars);
+  }
+  animateStars();
+
+  // ===================== Floating Particles =====================
+  const particleCanvas = document.getElementById('particles');
+  const pCtx = particleCanvas.getContext('2d');
+  particleCanvas.width = sw;
+  particleCanvas.height = sh;
+  const particles = [];
+  for(let i=0;i<100;i++){
+    particles.push({
+      x: Math.random()*sw,
+      y: Math.random()*sh,
+      radius: Math.random()*2,
+      speedX:(Math.random()-0.5)*0.5,
+      speedY:(Math.random()-0.5)*0.5
+    });
+  }
+  function animateParticles(){
+    pCtx.clearRect(0,0,sw,sh);
+    particles.forEach(p=>{
+      pCtx.beginPath();
+      pCtx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+      pCtx.fillStyle="rgba(255,255,255,0.7)";
+      pCtx.fill();
+      p.x+=p.speedX;
+      p.y+=p.speedY;
+      if(p.x<0)p.x=sw;
+      if(p.x>sw)p.x=0;
+      if(p.y<0)p.y=sh;
+      if(p.y>sh)p.y=0;
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  // ===================== Shooting Stars =====================
+  const shootCanvas = document.getElementById('shootingStars');
+  const sCtx = shootCanvas.getContext('2d');
+  shootCanvas.width = sw;
+  shootCanvas.height = sh;
+  const shootingStars = [];
+  function createShootingStar(){
+    shootingStars.push({
+      x: Math.random()*sw,
+      y: Math.random()*sh/2,
+      length: Math.random()*100+50,
+      speed: Math.random()*10+6
+    });
+  }
+  setInterval(createShootingStar,2000);
+  function animateShootingStars(){
+    sCtx.clearRect(0,0,sw,sh);
+    shootingStars.forEach((star,i)=>{
+      sCtx.beginPath();
+      sCtx.moveTo(star.x,star.y);
+      sCtx.lineTo(star.x-star.length, star.y+star.length);
+      sCtx.strokeStyle="white";
+      sCtx.stroke();
+      star.x+=-star.speed;
+      star.y+=star.speed;
+      if(star.y>sh || star.x<0) shootingStars.splice(i,1);
+    });
+    requestAnimationFrame(animateShootingStars);
+  }
+  animateShootingStars();
+
+  // ===================== AI Chat Bot =====================
+  const chatBox = document.getElementById("chatBox");
+  const chatInput = document.getElementById("chatInput");
+
+  const botResponses = {
+    "hello":"Hello there! 👋",
+    "hi":"Hi! How are you?",
+    "how are you":"I'm just a website bot, but I'm doing great!",
+    "who are you":"I'm ur-girly1's AI chat bot!",
+    "github":"Check out ur-girly1's GitHub profile above!",
+    "default":"I didn't understand that. Try asking something else!"
+  };
+
+  chatInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      const userMsg = chatInput.value.trim();
+      if(userMsg === "") return;
+      addMessage("user", userMsg);
+      chatInput.value = "";
+      setTimeout(()=>{ botReply(userMsg); },500);
+    }
+  });
+
+  function addMessage(sender, text){
+    const div = document.createElement("div");
+    div.className = "chatMessage "+sender;
+    div.textContent = text;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function botReply(msg){
+    const msgLower = msg.toLowerCase();
+    let reply = botResponses["default"];
+    for(let key in botResponses){
+      if(msgLower.includes(key)){ reply = botResponses[key]; break; }
+    }
+    addMessage("bot", reply);
+  }
+
+  // ===================== Handle Resize =====================
+  window.addEventListener('resize', ()=>{
+    sw = starCanvas.width = particleCanvas.width = shootCanvas.width = window.innerWidth;
+    sh = starCanvas.height = particleCanvas.height = shootCanvas.height = window.innerHeight;
+  });
+</script>
 </body>
 </html>
