@@ -1,253 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ur-girly1's GitHub</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: black;
-    color: #c9d1d9;
-  }
+    <meta charset="UTF-8">
+    <title>Black & Silver Website</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -3;
-  }
+        body {
+            background: #0b0b0b;
+            color: #dcdcdc;
+        }
 
-  .content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    top: 10%;
-  }
+        /* Navbar */
+        nav {
+            background: linear-gradient(90deg, #000, #1a1a1a);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2f2f2f;
+        }
 
-  .typing {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+        nav h1 {
+            color: silver;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
 
-  .links a {
-    display: inline-block;
-    margin: 0 1rem;
-    text-decoration: none;
-    color: #58a6ff;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-  }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
 
-  .links a:hover {
-    color: #1f6feb;
-  }
+        nav ul li a {
+            text-decoration: none;
+            color: #cfcfcf;
+            transition: 0.3s;
+        }
 
-  #chatContainer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(30,30,30,0.9);
-    border-radius: 10px;
-    padding: 15px;
-    width: 250px;
-    max-height: 350px;
-    overflow-y: auto;
-    font-size: 0.9rem;
-  }
+        nav ul li a:hover {
+            color: silver;
+        }
 
-  #chatInput {
-    width: 100%;
-    margin-top: 5px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    font-size: 0.9rem;
-  }
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top, #1c1c1c, #000);
+        }
 
-  .chatMessage {
-    margin: 5px 0;
-  }
+        .hero h2 {
+            font-size: 48px;
+            color: silver;
+            margin-bottom: 15px;
+        }
 
-  .user { color: #58a6ff; }
-  .bot { color: #d1d5da; }
-</style>
+        .hero p {
+            max-width: 600px;
+            font-size: 18px;
+            color: #b5b5b5;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            padding: 12px 30px;
+            border: 1px solid silver;
+            background: transparent;
+            color: silver;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background: silver;
+            color: #000;
+        }
+
+        /* Cards Section */
+        .section {
+            padding: 80px 40px;
+            background: #0f0f0f;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #111, #1a1a1a);
+            padding: 30px;
+            border: 1px solid #2e2e2e;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: silver;
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: silver;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid #2a2a2a;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<canvas id="stars"></canvas>
-<canvas id="particles"></canvas>
-<canvas id="shootingStars"></canvas>
 
-<div class="content">
-  <div class="typing" id="typingText"></div>
-  <div class="links">
-    <a href="https://github.com/ur-girly1" target="_blank">GitHub</a>
-    <a href="#" target="_blank">Discord</a>
-    <a href="#" target="_blank">YouTube</a>
-  </div>
-</div>
+    <nav>
+        <h1>BLACKSILVER</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-<div id="chatContainer">
-  <div id="chatBox"></div>
-  <input type="text" id="chatInput" placeholder="Ask me something..." />
-</div>
+    <section class="hero">
+        <h2>Elegant. Dark. Clean.</h2>
+        <p>A simple black and silver themed website built with pure HTML and CSS.</p>
+        <button>Get Started</button>
+    </section>
 
-<script>
-  // ===================== Typing Effect =====================
-  const message = "Hello, I'm ur-girly1!";
-  const typingText = document.getElementById("typingText");
-  let index = 0;
-  function type() {
-    if(index < message.length) {
-      typingText.innerHTML += message[index];
-      index++;
-      setTimeout(type, 100);
-    }
-  }
-  type();
+    <section class="section">
+        <div class="cards">
+            <div class="card">
+                <h3>Modern Design</h3>
+                <p>Sleek black background paired with silver highlights.</p>
+            </div>
+            <div class="card">
+                <h3>Responsive</h3>
+                <p>Automatically adapts to different screen sizes.</p>
+            </div>
+            <div class="card">
+                <h3>Lightweight</h3>
+                <p>No frameworks. Just fast, clean code.</p>
+            </div>
+        </div>
+    </section>
 
-  // ===================== Stars Background =====================
-  const starCanvas = document.getElementById('stars');
-  const starCtx = starCanvas.getContext('2d');
-  let sw = starCanvas.width = window.innerWidth;
-  let sh = starCanvas.height = window.innerHeight;
+    <footer>
+        © 2025 • Made by Soggy
+    </footer>
 
-  const stars = [];
-  for(let i=0;i<200;i++){
-    stars.push({
-      x: Math.random()*sw,
-      y: Math.random()*sh,
-      radius: Math.random()*1.5,
-      speed: Math.random()*0.5+0.1
-    });
-  }
-
-  function animateStars(){
-    starCtx.clearRect(0,0,sw,sh);
-    starCtx.fillStyle = "white";
-    stars.forEach(star => {
-      starCtx.beginPath();
-      starCtx.arc(star.x, star.y, star.radius,0,Math.PI*2);
-      starCtx.fill();
-      star.y -= star.speed;
-      if(star.y<0){ star.y=sh; star.x=Math.random()*sw; }
-    });
-    requestAnimationFrame(animateStars);
-  }
-  animateStars();
-
-  // ===================== Floating Particles =====================
-  const particleCanvas = document.getElementById('particles');
-  const pCtx = particleCanvas.getContext('2d');
-  particleCanvas.width = sw;
-  particleCanvas.height = sh;
-  const particles = [];
-  for(let i=0;i<100;i++){
-    particles.push({
-      x: Math.random()*sw,
-      y: Math.random()*sh,
-      radius: Math.random()*2,
-      speedX:(Math.random()-0.5)*0.5,
-      speedY:(Math.random()-0.5)*0.5
-    });
-  }
-  function animateParticles(){
-    pCtx.clearRect(0,0,sw,sh);
-    particles.forEach(p=>{
-      pCtx.beginPath();
-      pCtx.arc(p.x,p.y,p.radius,0,Math.PI*2);
-      pCtx.fillStyle="rgba(255,255,255,0.7)";
-      pCtx.fill();
-      p.x+=p.speedX;
-      p.y+=p.speedY;
-      if(p.x<0)p.x=sw;
-      if(p.x>sw)p.x=0;
-      if(p.y<0)p.y=sh;
-      if(p.y>sh)p.y=0;
-    });
-    requestAnimationFrame(animateParticles);
-  }
-  animateParticles();
-
-  // ===================== Shooting Stars =====================
-  const shootCanvas = document.getElementById('shootingStars');
-  const sCtx = shootCanvas.getContext('2d');
-  shootCanvas.width = sw;
-  shootCanvas.height = sh;
-  const shootingStars = [];
-  function createShootingStar(){
-    shootingStars.push({
-      x: Math.random()*sw,
-      y: Math.random()*sh/2,
-      length: Math.random()*100+50,
-      speed: Math.random()*10+6
-    });
-  }
-  setInterval(createShootingStar,2000);
-  function animateShootingStars(){
-    sCtx.clearRect(0,0,sw,sh);
-    shootingStars.forEach((star,i)=>{
-      sCtx.beginPath();
-      sCtx.moveTo(star.x,star.y);
-      sCtx.lineTo(star.x-star.length, star.y+star.length);
-      sCtx.strokeStyle="white";
-      sCtx.stroke();
-      star.x+=-star.speed;
-      star.y+=star.speed;
-      if(star.y>sh || star.x<0) shootingStars.splice(i,1);
-    });
-    requestAnimationFrame(animateShootingStars);
-  }
-  animateShootingStars();
-
-  // ===================== AI Chat Bot =====================
-  const chatBox = document.getElementById("chatBox");
-  const chatInput = document.getElementById("chatInput");
-
-  const botResponses = {
-    "hello":"Hello there! 👋",
-    "hi":"Hi! How are you?",
-    "how are you":"I'm just a website bot, but I'm doing great!",
-    "who are you":"I'm ur-girly1's AI chat bot!",
-    "github":"Check out ur-girly1's GitHub profile above!",
-    "default":"I didn't understand that. Try asking something else!"
-  };
-
-  chatInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter"){
-      const userMsg = chatInput.value.trim();
-      if(userMsg === "") return;
-      addMessage("user", userMsg);
-      chatInput.value = "";
-      setTimeout(()=>{ botReply(userMsg); },500);
-    }
-  });
-
-  function addMessage(sender, text){
-    const div = document.createElement("div");
-    div.className = "chatMessage "+sender;
-    div.textContent = text;
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-
-  function botReply(msg){
-    const msgLower = msg.toLowerCase();
-    let reply = botResponses["default"];
-    for(let key in botResponses){
-      if(msgLower.includes(key)){ reply = botResponses[key]; break; }
-    }
-    addMessage("bot", reply);
-  }
-
-  // ===================== Handle Resize =====================
-  window.addEventListener('resize', ()=>{
-    sw = starCanvas.width = particleCanvas.width = shootCanvas.width = window.innerWidth;
-    sh = starCanvas.height = particleCanvas.height = shootCanvas.height = window.innerHeight;
-  });
-</script>
 </body>
 </html>
+
