@@ -77,7 +77,9 @@ body {
 }
 
 .logo-img {
-    display: none;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .nav {
@@ -127,18 +129,12 @@ body {
     padding: 2rem;
 }
 
-.hero-logo-text {
+.hero-logo {
     width: 200px;
     height: 200px;
+    object-fit: contain;
     margin: 0 auto 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-    font-weight: 700;
-    color: var(--silver);
-    border: 3px solid var(--silver);
-    border-radius: 50%;
+    display: block;
 }
 
 .hero h1 {
@@ -316,10 +312,9 @@ a:focus {
         font-size: 2rem;
     }
 
-    .hero-logo-text {
+    .hero-logo {
         width: 150px;
         height: 150px;
-        font-size: 6rem;
     }
 
     .hero p {
