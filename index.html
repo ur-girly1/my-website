@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sessla - My Website</title>
+    <title>Sessla - Trading & Business Solutions</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -11,8 +11,8 @@
     <!-- Site Header with Navigation -->
     <header class="site-header">
         <div class="container">
-            <a class="logo" href="/">
-                <img src="./assets/logo.png" alt="Sessla Logo" class="logo-img" />
+            <a class="logo" href="index.html">
+                <span class="logo-icon">S</span>
                 <span>Sessla</span>
             </a>
             
@@ -21,7 +21,8 @@
             </button>
             
             <nav class="nav" id="site-nav" aria-label="Main navigation">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
@@ -32,49 +33,196 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <img src="./assets/logo.png" alt="Sessla Logo" class="hero-logo" />
-                
-                <h1>Welcome to Sessla.com</h1>
-                <p>Sessla.com is a website that is COLD!</p>
+                <h1>Strategic Trading & Business Solutions</h1>
+                <p class="hero-subtitle">Empowering businesses with data-driven trading strategies and comprehensive market insights</p>
                 
                 <div class="cta-row">
-                    <a class="btn" href="about.html">Learn More</a>
-                    <a class="btn btn-outline" href="contact.html">Contact</a>
+                    <a class="btn btn-primary" href="services.html">Our Services</a>
+                    <a class="btn btn-outline" href="contact.html">Get Started</a>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features container">
-            <article class="feature">
-                <h2>Cold & Simple</h2>
-                <p>Clean jitlian and fetlatoogan design.</p>
-            </article>
-            
-            <article class="feature">
-                <h2>Random</h2>
-                <p>Jittest of all jits of all jits of all jits.</p>
-            </article>
-            
-            <article class="feature">
-                <h2>Accessible</h2>
-                <p>Sess likes durrburgers.</p>
-            </article>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="stat-number">$2.5B+</h3>
+                        <p class="stat-label">Trading Volume</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number">500+</h3>
+                        <p class="stat-label">Active Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number">98%</h3>
+                        <p class="stat-label">Success Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number">24/7</h3>
+                        <p class="stat-label">Market Analysis</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- About Section -->
-        <section class="about container">
-            <h2>About This Sessla.com</h2>
-            <p>Sessa's job site.</p>
+        <!-- Services Overview -->
+        <section class="services-overview container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for modern trading and business growth</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Market Analysis</h3>
+                    <p>Real-time market insights and data-driven analysis to keep you ahead of market trends and opportunities.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Business Consulting</h3>
+                    <p>Strategic business planning and consulting services to optimize operations and drive sustainable growth.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Trading Strategies</h3>
+                    <p>Custom trading strategies tailored to your risk profile and investment goals for maximum returns.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Risk Management</h3>
+                    <p>Comprehensive risk assessment and management solutions to protect your investments and assets.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Portfolio Management</h3>
+                    <p>Expert portfolio management services designed to diversify and optimize your investment returns.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Partnership Solutions</h3>
+                    <p>Strategic partnerships and networking opportunities to expand your business reach and capabilities.</p>
+                    <a href="services.html" class="service-link">Learn More →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="two-column">
+                    <div class="column-content">
+                        <h2>Why Choose Sessla?</h2>
+                        <p class="lead-text">We combine cutting-edge technology with years of trading expertise to deliver exceptional results for our clients.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <h4>Expert Team</h4>
+                                    <p>Seasoned professionals with decades of combined trading experience</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <h4>Advanced Analytics</h4>
+                                    <p>State-of-the-art tools and real-time data for informed decisions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <h4>Proven Track Record</h4>
+                                    <p>Consistently delivering results across various market conditions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <h4>Personalized Approach</h4>
+                                    <p>Tailored strategies aligned with your unique goals and risk tolerance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column-image">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="Trading Dashboard" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Trading Strategy?</h2>
+                <p>Join hundreds of successful traders and businesses who trust Sessla for their market success.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Get Started Today</a>
+            </div>
         </section>
     </main>
 
     <!-- Site Footer -->
     <footer class="site-footer">
         <div class="container">
-            <p>♕ © Sessla ♕</p>
-            <p class="small">Hosted locally from your folder.</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Sessla</h4>
+                    <p>Strategic trading and business solutions for the modern market.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Market Analysis</a></li>
+                        <li><a href="services.html">Trading Strategies</a></li>
+                        <li><a href="services.html">Risk Management</a></li>
+                        <li><a href="services.html">Portfolio Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>info@sessla.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>24/7 Support Available</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>♕ © 2025 Sessla. All rights reserved. ♕</p>
+            </div>
         </div>
     </footer>
 
