@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — My Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="/">Sessla</a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false">☰</button>
+        <nav class="nav" id="site-nav" aria-label="Main navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Contact</h1>
+      <p>Send me a message — this form is client-side only (no server configured).</p>
+
+      <form class="contact-form" style="max-width:600px;">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required style="width:100%;padding:0.5rem;margin:0.25rem 0 0.75rem;border-radius:6px;border:1px solid #e6e9ef">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required style="width:100%;padding:0.5rem;margin:0.25rem 0 0.75rem;border-radius:6px;border:1px solid #e6e9ef">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required style="width:100%;padding:0.5rem;margin:0.25rem 0 0.75rem;border-radius:6px;border:1px solid #e6e9ef"></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>♕ © Sessla ♕</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
